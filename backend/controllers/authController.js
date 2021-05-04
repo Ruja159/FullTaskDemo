@@ -12,7 +12,7 @@ const auth = (req, res) => {
         const validPassword = bcrypt.compareSync(req.body.password, user.password)
         if(validPassword) {
 
-            const accessToken = jwt.sign({ email: user.email }, accessTokenSecret, { expiresIn: '20m' });
+            const accessToken = jwt.sign({ email: user.email }, accessTokenSecret, { expiresIn: '10h' });
             res.json({
                 accessToken
             });

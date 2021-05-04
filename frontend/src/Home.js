@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import Header from './Header'
+import Perfumes from './Perfumes'
 
 const Home = ({ authorized, loginHandler }) => {
 
@@ -8,16 +9,12 @@ const Home = ({ authorized, loginHandler }) => {
         return <Redirect to="/login" />
     }
 
-    const handleLogOut = () => {
-        loginHandler(false);
-        localStorage.removeItem('token')
-    }
+    
 
     return (
         <>
-        <Header />
-            {/* <h1>HOME</h1>
-            <button onClick={handleLogOut}>Log Out</button> */}
+            <Header loginHandler={loginHandler} />
+            <Perfumes />
         </>
     )
 }

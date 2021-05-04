@@ -1,12 +1,10 @@
-const LoginHtml = ({user,handleChange,handleSubmit}) => {
+import './loginHtml.css';
+
+const LoginHtml = ({ user, handleChange, handleSubmit }) => {
     return <>
-        <div className="container" >
-            <div className="row">
-                <div className="col">
-                </div>
-                <div className="col">
-                </div >
-                <div className="col form" >
+        <div className="login" >
+            <div className="container  d-flex justify-content-end ">
+                <div className="form input-form">
                     <form>
                         <div className="form-group text-left">
                             <label>Email address</label>
@@ -47,9 +45,9 @@ const LoginHtml = ({user,handleChange,handleSubmit}) => {
                             <button className="btn btn-success btn-block" >Create new account</button>
                         </div>
                     </form>
+
+
                 </div>
-
-
             </div>
         </div>
     </>

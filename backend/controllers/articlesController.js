@@ -4,6 +4,12 @@ const getArticles = (req, res) => {
     res.send(data.sellingArticles)
 }
 
+const getArticleByType = (req,res)=>{
+      const type = req.params.type
+      const newArticle = data.sellingArticles.filter(articles => articles.type ===type)
+      res.json(newArticle)
+    }
+
 const getArticleById = (req, res) => {
     const newArticle = data.sellingArticles.find(a => a.id === parseInt(req.params.id));
     res.json(newArticle)
@@ -21,7 +27,8 @@ const addNewArticle = (req, res) => {
             title: req.body.title,
             summary: req.body.summary,
             price: req.body.price,
-            photo: req.body.photo
+            photo: req.body.photo,
+            type: req.body.type
         }
         data.sellingArticles.push(newArticle);
         res.json(newArticle);
@@ -38,6 +45,7 @@ const updateArticle = (req, res) => {
     existingArticle.summary = req.body.summary;
     existingArticle.price = req.body.price;
     existingArticle.photo = req.body.photo;
+    existingArticle.type = req.body.type;
 
     res.json(existingArticle)
 }
@@ -59,5 +67,6 @@ module.exports = {
     getArticleById,
     addNewArticle,
     updateArticle,
-    deleteArticle
+    deleteArticle,
+    getArticleByType
 }

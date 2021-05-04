@@ -1,10 +1,11 @@
 const express = require('express');
 const jwt = require('jsonwebtoken')
 const app = express();
+const data = require('./data/data')
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
   });
 
@@ -20,6 +21,12 @@ app.use('/api/articles', articles)
 app.use('/api/customers', customers)
 app.use('/', auth)
 
+
+// app.get("/articles/:type" , (req,res)=>{
+//   const type = req.params.type
+//   const newArticle = data.sellingArticles.filter(articles => articles.type ===type)
+//   res.json(newArticle)
+// })
 
 
 app.listen(5000, () => {

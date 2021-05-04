@@ -1,0 +1,18 @@
+.login {
+  height: 100vh;
+  background-image: url("https://www.sephora.com/productimages/product/p456169-av-05-zoom.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.input-form {
+    background-color: transparent;
+    
+    box-shadow: none;
+}
+.input-form form label{
+    /* background-color: hsl(206, 90%, 39%, 0.8); */
+    color: white;
+}
