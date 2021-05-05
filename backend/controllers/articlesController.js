@@ -1,7 +1,7 @@
 const data = require('../data/data')
 
 const getArticles = (req, res) => {
-    res.send(data.sellingArticles)
+    res.send(data.sellingArticles) 
 }
 
 const getArticleByType = (req,res)=>{

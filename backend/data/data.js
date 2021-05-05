@@ -44,6 +44,7 @@ const sellingArticles = [
         title: 'Armani Code',
         summary: 'Armani Code by Giorgio Armani is a Amber Spicy fragrance for men. Armani Code was launched in 2004. The nose behind this fragrance is Antoine Lie. Top notes are Lemon and Bergamot; middle notes are Star Anise, Olive Blossom and Guaiac Wood; base notes are Leather, Tonka Bean and Tobacco. This perfume is the winner of award FiFi Award Fragrance Of The Year Men`s Luxe 2006.',
         price: 159.99,
+        currency: 'EUR',
         photo: 'https://fimgs.net/mdimg/perfume/375x500.412.jpg',
         type: "man"
 
@@ -53,6 +54,7 @@ const sellingArticles = [
         title: 'Sauvage Dior',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://s3.eu-central-1.amazonaws.com/cnj-img/images/hO/hOlb1bOA6pwa',
         type: "man"
     },
@@ -61,6 +63,7 @@ const sellingArticles = [
         title: 'Joop Home',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'http://nashershop.ae/wp-content/uploads/2020/07/71EbnsfAm6L._AC_SL1500_.jpg',
         type: "man"
     },
@@ -69,6 +72,7 @@ const sellingArticles = [
         title: 'Versace',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://fimgs.net/mdimg/perfume/375x500.16657.jpg',
         type: "man"
     },
@@ -77,6 +81,7 @@ const sellingArticles = [
         title: 'Sauvage Dior',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://s3.eu-central-1.amazonaws.com/cnj-img/images/hO/hOlb1bOA6pwa',
         type: "man"
     },
@@ -85,6 +90,7 @@ const sellingArticles = [
         title: 'Sauvage Dior',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://s3.eu-central-1.amazonaws.com/cnj-img/images/hO/hOlb1bOA6pwa',
         type: "man"
     },
@@ -93,6 +99,7 @@ const sellingArticles = [
         title: 'Sauvage Dior',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://s3.eu-central-1.amazonaws.com/cnj-img/images/hO/hOlb1bOA6pwa',
         type: "woman"
     },
@@ -101,6 +108,7 @@ const sellingArticles = [
         title: 'Sauvage Dior',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://s3.eu-central-1.amazonaws.com/cnj-img/images/hO/hOlb1bOA6pwa',
         type: "woman"
     },
@@ -109,6 +117,7 @@ const sellingArticles = [
         title: 'Sauvage Dior',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://s3.eu-central-1.amazonaws.com/cnj-img/images/hO/hOlb1bOA6pwa',
         type: "woman"
     },
@@ -117,6 +126,7 @@ const sellingArticles = [
         title: 'Sauvage Dior',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://s3.eu-central-1.amazonaws.com/cnj-img/images/hO/hOlb1bOA6pwa',
         type: "woman"
     },
@@ -125,6 +135,7 @@ const sellingArticles = [
         title: 'Sauvage Dior',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://s3.eu-central-1.amazonaws.com/cnj-img/images/hO/hOlb1bOA6pwa',
         type: "woman"
     },
@@ -133,6 +144,7 @@ const sellingArticles = [
         title: 'Sauvage Dior',
         summary: 'Sauvage is an act of creation inspired by wide-open spaces. An ozone blue sky that dominates a white-hot rocky landscape',
         price: 129.99,
+        currency: 'EUR',
         photo: 'https://s3.eu-central-1.amazonaws.com/cnj-img/images/hO/hOlb1bOA6pwa',
         type: "man"
     }

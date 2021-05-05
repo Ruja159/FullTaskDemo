@@ -18,8 +18,11 @@ const getUserByEmail = (req, res) => {
 const addNewUser = (req, res) => {
     const hashedPassword = bcrypt.hashSync(req.body.password , 8)
 
-    const email = req.body.email
+    const email = req.body.email 
     const existingUser = data.user.find(u => u.email === email)
+    if(!email || !req.body.password){
+        res.status(200).json({ success: false, emailMsg: "Enter your email" , passMsg:"Enter your password"})
+    }
     if (existingUser) {
         res.status(200).json({ success: false, msg: "The user with the same email already exsisting!!" })
     } else {

@@ -2,13 +2,23 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Header from './Header'
 
-const MensPerfume = (props) => {
+const GenderFiltered = ({type, currency}) => {
 
-    const type = props.location.state.type
-    const [menPerfume, setMenPerfume] = useState([])
+    const [menPerfume, setMenPerfume] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/api/articles/type/man`
+        let url = `http://localhost:5000/api/articles/type/`;
+
+        switch(type) {
+            case "man":
+                url = url + "man";
+                break;
+            case "woman":
+                url = url + "woman";
+                break;
+            default:
+                url = url;
+        }
 
         const requestOptions = {
             method: 'GET',
@@ -22,20 +32,35 @@ const MensPerfume = (props) => {
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                setMenPerfume(data)
+                data = data.map(i => { return { ...i, defaultPrice: i.price } });
+                setMenPerfume(data);
             });
 
 
         return () => {
             console.log('cleanup');
         }
-    }, [])
-    console.log(type)
-    console.log(menPerfume);
+    }, [type]);
+
+    useEffect(() => {
+        let reCalculatedItems = menPerfume.map(i => {
+            switch (currency) {
+                case "USD":
+                    i.price *= 2;
+                    break;
+                default: //for EURO 
+                    i.price = i.price / 2;
+            }
+            return {...i, price: i.price};
+        });
+        console.log("REC", reCalculatedItems);
+        setMenPerfume(reCalculatedItems);
+    }, [currency]);
+
+
     return (
         <>
 
-            <Header />
             <div className="container d-flex flex-wrap ">
                 {menPerfume.map(item => {
                     const { id, title, summary, photo, price } = item
@@ -52,7 +77,7 @@ const MensPerfume = (props) => {
                             </div>
                             <div className="d-flex justify-content-between">
 
-                                <h4>{price}$ </h4>
+                                <h4>{price}{currency == "EUR" ? "€" : "$"}</h4>
                                 <button className="buy-button">Buy now</button>
 
                             </div>
@@ -67,4 +92,4 @@ const MensPerfume = (props) => {
     )
 }
 
-export default MensPerfume
+export default GenderFiltered;

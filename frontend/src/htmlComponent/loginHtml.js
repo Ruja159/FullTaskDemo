@@ -1,6 +1,6 @@
 import './loginHtml.css';
 
-const LoginHtml = ({ user, handleChange, handleSubmit }) => {
+const LoginHtml = ({ user, handleChange, handleSubmit , handleLink}) => {
     return <>
         <div className="login" >
             <div className="container  d-flex justify-content-end ">
@@ -42,7 +42,7 @@ const LoginHtml = ({ user, handleChange, handleSubmit }) => {
                         <div className="line"></div>
 
                         <div className="form-group">
-                            <button className="btn btn-success btn-block" >Create new account</button>
+                            <button className="btn btn-success btn-block" onClick={handleLink} >Create new account</button>
                         </div>
                     </form>
 

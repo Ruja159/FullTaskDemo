@@ -1,5 +1,5 @@
-import { useState}  from 'react'
-import {useHistory} from 'react-router-dom'
+import { useState } from 'react'
+import {useHistory } from 'react-router-dom'
 import LoginHtml from '../htmlComponent/loginHtml'
 
 
@@ -41,8 +41,12 @@ const Auth = ({ loginHandler }) => {
             });
     }
 
+    const handleLink = () => {
+        history.push("/registration")
+    }
+
     return (
-        <LoginHtml user={user} handleChange={handleChange} handleSubmit={handleSubmit}/>      
+        <LoginHtml user={user} handleChange={handleChange} handleSubmit={handleSubmit} handleLink={handleLink} />
     )
 }
 
