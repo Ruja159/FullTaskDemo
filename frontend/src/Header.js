@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import { Dropdown, DropdownButton } from 'react-bootstrap'
+import { NavDropdown, Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'
 import logo from './img/logo.jpg';
 import { Link } from 'react-router-dom'
 import CartModal from './Cart'
@@ -23,8 +24,6 @@ const Header = ({ loginHandler }) => {
     const [search, setSeatch] = useState('')
 
     const [parfumeType, setParfumeType] = useState("all");
-
-    const [currency, setCurrency] = useState("EUR");
 
     const handleParfumeTypeChange = (value) => {
         setParfumeType(value);
@@ -55,14 +54,6 @@ const Header = ({ loginHandler }) => {
     const calculateSum = (selectedItems) => {
         const newPriceArray = selectedItems.map(i => {
             let genericPrice = i.item.defaultPrice * i.counter;
-            switch (currency) {
-                case "USD":
-                    genericPrice *= 2;
-                    break;
-                default: //for EURO 
-                    genericPrice = genericPrice;
-            }
-            console.log(genericPrice);
             return genericPrice;
         })
 
@@ -106,54 +97,18 @@ const Header = ({ loginHandler }) => {
         }
     }
 
-    // cartItems = [
-    //     items: {
-    //         item: {
-    //             id: 1,
-    //             name: "a"
-    //         }
-    //         conter: 1;
-    //     },
-    //     {
-    //         item: {
-    //             id: 2,
-    //             name: "b"
-    //         }
-    //         counter: 2;
-    //     },
-    // numberOfItems: 2
-    // ]
-
-
-    const handleCurrencyChange = (curr) => {
-        setCurrency(curr);
-        let reCalculatedItems = cartItems.items.map(i => {
-            switch (currency) {
-                case "USD":
-                    i.price *= 2;
-                    break;
-                default: //for EURO 
-                    i.price = i.price / 2;
-            }
-            return { ...i, price: i.price };
-        });
-        setCartItems({ ...cartItems, items: reCalculatedItems });
-
-        setSum(cartItems.items);
-    }
-
     return (<>
         <div className="header sticky-top">
-            <div className="logo-holder py-3 w-100 d-flex justify-content-between container align-items-center">
+            <div className="logo-holder py-3 w-100 d-flex justify-content-between container-lg align-items-center">
                 <Link to="/home" >
                     <img src={logo} className="logo-img" alt="#" width="100" />
                 </Link>
                 <h1 className="text-white font-italic font-weight-light">Ruja's perfumes</h1>
                 <div className="d-flex flex-column position-relative align-items-center">
-                    <button type="button" className="btn btn-link" onClick={() => handleCurrencyChange("USD")}>USD</button>
-                    <button type="button" className="btn btn-link" onClick={() => handleCurrencyChange("EUR")}>EUR</button>
+                    {/* <button type="button" className="btn btn-link" onClick={() => handleCurrencyChange("USD")}>USD</button>
+                    <button type="button" className="btn btn-link" onClick={() => handleCurrencyChange("EUR")}>EUR</button> */}
                     <button type="button" className="cursor-pointer cart" onClick={() => setModalShow(true)}>
-                        <FaShoppingCart style={{ width: 40, height: 40, fill: 'white' }} />
+                        <FaShoppingCart id="shopping-cart" />
                     </button>
 
                     <div className="bg-danger position-absolute cart-number-box" >
@@ -164,44 +119,71 @@ const Header = ({ loginHandler }) => {
                     </div>
                 </div>
             </div>
-            <div className="">
-                <nav className="navbar navbar-expand-lg navbar-light bg-light w-10 nav-fill ">
-                    <ul className="navbar-nav w-100">
-                        <li className="nav-item">
-                            <button onClick={() => { handleParfumeTypeChange("all") }} className="nav-link btn btn-link" >Home</button>
-                        </li>
-                        <li className="nav-item">
-                            <button onClick={() => { handleParfumeTypeChange("man") }} className="nav-link btn btn-link" >Men's perfumes</button>
-                        </li>
-                        <li className="nav-item">
-                            <button onClick={() => { handleParfumeTypeChange("woman") }} className="nav-link btn btn-link " >Women's perfumes</button>
-                        </li>
 
-                        <DropdownButton variant="link" id="dropdown-basic-button" title="Dropdown button">
+            {/* <div className="">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light nav-fill ">
+                    <button aria-controls="basic-navbar-nav" type="button" aria-label="Toggle navigation" class="navbar-toggler">
+                        <span class="navbar-toggler-icon">
+                        </span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="basic-navbar-nav">
+                        <ul className="navbar-nav w-100 mr-auto">
+                            <li className="nav-item active">
+                                <button onClick={() => { handleParfumeTypeChange("all") }} className="nav-link nav-btn btn-link"><span class="sr-only">(current)</span>Home</button>
+                            </li>
+                            <li className="nav-item">
+                                <button onClick={() => { handleParfumeTypeChange("man") }} className="nav-link nav-btn btn-link" >Men's perfumes</button>
+                            </li>
+                            <li className="nav-item">
+                                <button onClick={() => { handleParfumeTypeChange("woman") }} className="nav-link nav-btn btn-link " >Women's perfumes</button>
+                            </li>
 
-                            <Dropdown.Item onClick={handleAbout}>About</Dropdown.Item>
-                            <Dropdown.Item onClick={handleContact}>Contact</Dropdown.Item>
-                            <Dropdown.Item onClick={handleLogOut}>Logout</Dropdown.Item>
-                        </DropdownButton>
+                            <DropdownButton variant="link" id="dropdown-basic-button" title="Dropdown button">
 
-                        <form className="form-inline my-2 my-lg-0 position-relative">
-                            <input
-                                className="form-control mr-sm-2"
-                                type="search"
-                                placeholder="Search"
-                                aria-label="Search"
-                                onChange={event => { setSeatch(event.target.value) }}
-                            />
-                        </form>
-                    </ul>
+                                <Dropdown.Item onClick={handleAbout} className="dropdown-item-btn">About</Dropdown.Item>
+                                <Dropdown.Item onClick={handleContact} className="dropdown-item-btn">Contact</Dropdown.Item>
+                                <Dropdown.Item onClick={handleLogOut} className="dropdown-item-btn">Logout</Dropdown.Item>
+                            </DropdownButton>
+
+                            <form className="form-inline my-2 my-lg-0 position-relative">
+                                <input
+                                    className="form-control mr-sm-2"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                    onChange={event => { setSeatch(event.target.value) }}
+                                />
+                            </form>
+
+                        </ul>
+                    </div>
                 </nav>
-            </div>
+            </div> */}
+            <Navbar bg="light" expand="lg">
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto w-100 d-flex justify-content-center ml-5">
+                        <Nav.Link className="mr-auto " onClick={() => { handleParfumeTypeChange("all") }}>Home</Nav.Link>
+                        <Nav.Link className="mr-auto" onClick={() => { handleParfumeTypeChange("man") }}>Men's perfume</Nav.Link>
+                        <Nav.Link className="mr-auto" onClick={() => { handleParfumeTypeChange("woman") }}>Woman's perfume</Nav.Link>
+                        <NavDropdown className="mr-auto" title="Dropdown" id="basic-nav-dropdown">
+                            <NavDropdown.Item onClick={handleAbout}>About</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleContact}>Contact</NavDropdown.Item>
+                            <NavDropdown.Item onClick={handleLogOut}>Logout</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                        </NavDropdown>
+                    </Nav>
+                    <Form inline>
+                        <FormControl type="search" placeholder="Search" className="mr-sm-2" onChange={event => { setSeatch(event.target.value) }} />
+                    </Form>
+                </Navbar.Collapse>
+            </Navbar>
         </div>
 
-        {parfumeType == "all" ? <Perfumes handleCartItems={handleCartItems} search={search} currency={currency} /> : <GenderFiltered type={parfumeType} currency={currency} />}
+        { parfumeType == "all" ? <Perfumes handleCartItems={handleCartItems} search={search} /> : <GenderFiltered type={parfumeType} />}
 
 
-        <CartModal show={modalShow} onHide={() => setModalShow(false)} cartitems={cartItems.items} sum={sum} handleparfumeadd={handleParfumeAdd} handleparfumeremove={handleParfumeRemove} currency={currency} />
+        <CartModal show={modalShow} onHide={() => setModalShow(false)} cartitems={cartItems.items} sum={sum} handleparfumeadd={handleParfumeAdd} handleparfumeremove={handleParfumeRemove} />
     </>
 
     )

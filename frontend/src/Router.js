@@ -14,7 +14,7 @@ import Cart from './Cart';
 
 const ReactRouter = () => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
 
     const loginHandler = (value) => {
         setIsLoggedIn(value);
@@ -37,12 +37,12 @@ const ReactRouter = () => {
                     <Route path="/contact">
                         <Contact />
                     </Route>
-                    
+
                     <Route path="/mensperfume" render={(props) => <MensPerfume {...props} />} />
 
                     <Route path="/womensperfume" render={(props) => <WomensPerfume {...props} />} />
                     <Route path="/">
-                        <Home  />
+                        <Home />
                     </Route>
                 </Switch>
             </>

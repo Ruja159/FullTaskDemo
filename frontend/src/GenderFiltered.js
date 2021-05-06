@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Header from './Header'
 
-const GenderFiltered = ({type, currency}) => {
+const GenderFiltered = ({ type }) => {
 
     const [menPerfume, setMenPerfume] = useState([]);
 
     useEffect(() => {
         let url = `http://localhost:5000/api/articles/type/`;
 
-        switch(type) {
+        switch (type) {
             case "man":
                 url = url + "man";
                 break;
@@ -42,44 +42,46 @@ const GenderFiltered = ({type, currency}) => {
         }
     }, [type]);
 
-    useEffect(() => {
-        let reCalculatedItems = menPerfume.map(i => {
-            switch (currency) {
-                case "USD":
-                    i.price *= 2;
-                    break;
-                default: //for EURO 
-                    i.price = i.price / 2;
-            }
-            return {...i, price: i.price};
-        });
-        console.log("REC", reCalculatedItems);
-        setMenPerfume(reCalculatedItems);
-    }, [currency]);
+    // useEffect(() => {
+    //     let reCalculatedItems = menPerfume.map(i => {
+    //         switch (currency) {
+    //             case "USD":
+    //                 i.price *= 2;
+    //                 break;
+    //             default: //for EURO 
+    //                 i.price = i.price / 2;
+    //         }
+    //         return {...i, price: i.price};
+    //     });
+    //     console.log("REC", reCalculatedItems);
+    //     setMenPerfume(reCalculatedItems);
+    // }, [currency]);
 
 
     return (
         <>
 
-            <div className="container d-flex flex-wrap ">
+            <div className="container-xl d-flex flex-wrap  ">
                 {menPerfume.map(item => {
                     const { id, title, summary, photo, price } = item
-                    return <div key={id} className='py-5 px-3 w-50 d-flex align-items-center'>
-                        <div>
-                            <Link to={{ pathname: "/eachperfume", state: { perfumeId: item.id } }}>
-                                <img src={photo} alt="" className="perfume-img m-2" />
-                            </Link>
-                        </div>
-                        <div className="d-flex flex-column">
+                    return <div key={id} id="gender-perfumes" className='col-sm-12 col-md-6 py-3' >
+                        <div id="gender-perfumes-content" className="px-3 m-3 d-flex align-items-center shadow">
                             <div>
-                                <h4 className="text-center">{title}</h4>
-                                <p className="text-justify">{summary}</p>
+                                <Link to={{ pathname: "/eachperfume", state: { perfumeId: item.id } }}>
+                                    <img src={photo} alt="" className="perfume-img m-2" />
+                                </Link>
                             </div>
-                            <div className="d-flex justify-content-between">
+                            <div className="d-flex flex-column">
+                                <div>
+                                    <h4>{title}</h4>
+                                    <p className="text-justify card-text-hight">{summary}</p>
+                                </div>
+                                <div className="d-flex justify-content-between">
 
-                                <h4>{price}{currency == "EUR" ? "€" : "$"}</h4>
-                                <button className="buy-button">Buy now</button>
+                                    <h4>{price}</h4>
+                                    <button className="buy-button">Buy now</button>
 
+                                </div>
                             </div>
                         </div>
 

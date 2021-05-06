@@ -1,12 +1,16 @@
 import React from 'react'
 import ReactRouter from './Router'
+import Footer from './Footer'
 
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = () =>{
+const App = () => {
     return (
-        <BrowserRouter> <ReactRouter /></BrowserRouter>
+        <BrowserRouter>
+            <ReactRouter />
+            <Footer />
+        </BrowserRouter>
     )
 }
 

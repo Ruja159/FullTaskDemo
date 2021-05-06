@@ -26,24 +26,24 @@ const Perfumes = ({ handleCartItems, search, currency }) => {
             });
     }, [])
 
-    useEffect(() => {
-        let reCalculatedItems = items.map(i => {
-            switch (currency) {
-                case "USD":
-                    i.price *= 2;
-                    break;
-                default: //for EURO 
-                    i.price = i.price / 2;
-            }
-            return { ...i, price: i.price };
-        });
-        console.log("REC", reCalculatedItems);
-        setItems(reCalculatedItems);
-    }, [currency])
+    // useEffect(() => {
+    //     let reCalculatedItems = items.map(i => {
+    //         switch (currency) {
+    //             case "USD":
+    //                 i.price *= 2;
+    //                 break;
+    //             default: //for EURO 
+    //                 i.price = i.price / 2;
+    //         }
+    //         return { ...i, price: i.price };
+    //     });
+    //     console.log("REC", reCalculatedItems);
+    //     setItems(reCalculatedItems);
+    // }, [currency])
 
 
     return (
-        <div className="container mt-5 d-flex flex-wrap justify-content-between">
+        <div className="container-lg mt-5 d-flex flex-wrap justify-content-between">
             {items.filter((val) => {
                 if (search === "") {
                     return val
@@ -53,7 +53,7 @@ const Perfumes = ({ handleCartItems, search, currency }) => {
                 return ''
             }).map(item => {
                 const { id, title, summary, photo, price } = item
-                return <div key={id} className='card my-4 ' style={{ width: "31%" }}>
+                return <div key={id} className='card my-4 perfume-item' >
                     <Link to={{ pathname: "/eachperfume", state: { perfumeId: item.id } }}>
                         <div className="d-flex justify-content-center">
                             <img src={photo} alt="" className="perfume-img m-2" />
