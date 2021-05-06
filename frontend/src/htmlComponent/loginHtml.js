@@ -1,6 +1,6 @@
-import './loginHtml.css';
+import '../css/loginHtml.css';
 
-const LoginHtml = ({ user, handleChange, handleSubmit , handleLink}) => {
+const LoginHtml = ({ user, handleChange, handleSubmit, handleLink }) => {
     return <>
         <div className="login" >
             <div className="container  d-flex justify-content-end ">

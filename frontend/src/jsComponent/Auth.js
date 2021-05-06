@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import {useHistory } from 'react-router-dom'
-import LoginHtml from '../htmlComponent/loginHtml'
+import { useHistory } from 'react-router-dom'
+import LoginHtml from '../htmlComponent/LoginHtml'
 
 
 const Auth = ({ loginHandler }) => {

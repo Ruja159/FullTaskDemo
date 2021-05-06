@@ -158,6 +158,10 @@ h5 {
   background: #0a6fbd; /* Gecko Browsers */
 }
 
+.main-content {
+  min-height: 70vh;
+}
+
 .form {
   align-items: center;
   background-color: #fff;
@@ -219,6 +223,13 @@ h5 {
   background: linear-gradient(to right bottom, #0a6fbd, #090d48);
   color: white;
 }
+.remove-btn {
+  border-radius: 6px;
+  font-size: 18px;
+  border: none;
+  background: red;
+  color: white;
+}
 #shopping-cart {
   width: 40px;
   height: 40px;
@@ -240,27 +251,27 @@ h5 {
   max-height: 400px;
   overflow-y: auto;
 }
+.modal-ul th,
+.modal-ul td {
+  width: 25%;
+  text-align: center;
+}
 /*NAVIGATION*/
 .nav-link {
   display: inline-block !important;
 }
-#dropdown-basic-button,
-.nav-btn,
-.dropdown-item-btn {
+.nav-item {
   border: none;
   border-bottom: 3px solid transparent !important; /*Override dropdown bootstrap class*/
   color: inherit;
   background-color: transparent;
   color: black;
 }
-#dropdown-basic-button:focus,
-.nav-btn {
+.nav-item:focus {
   box-shadow: none;
   text-decoration: none;
 }
-#dropdown-basic-button:hover,
-.nav-btn:hover,
-.dropdown-item-btn:hover {
+.nav-item:hover {
   border-bottom: 3px solid #090d48 !important;
   text-decoration: none;
 }
@@ -315,7 +326,7 @@ h5 {
   background: linear-gradient(to right bottom, #0a6fbd, #090d48);
   color: white;
   border: none;
-  padding: 5px 15px;
+  padding: 5px 5px;
   border-radius: 6px;
   text-transform: uppercase;
   text-decoration: none;
@@ -410,4 +421,38 @@ h5 {
     flex-flow: column;
     text-align: center;
   }
+  .table {
+    display: table;
+    font-size: 25px;
+  }
+  .table p {
+    font-size: initial !important;
+  }
+  #contained-modal-title-vcenter {
+    padding: 6px;
+  }
+  .modal-ul {
+    padding: 0 !important;
+  }
+  .pl-3 {
+    font-size: 20px;
+  }
+  .modal-body {
+    padding: 0 !important;
+  }
+  .modal-header {
+    padding: 5px !important;
+  }
+  .modal-title h4 {
+    font-size: 20px !important;
+  }
+}
+
+th {
+  font-weight: bold;
+}
+
+.amountInput {
+  width: 10%;
+  text-align: center;
 }

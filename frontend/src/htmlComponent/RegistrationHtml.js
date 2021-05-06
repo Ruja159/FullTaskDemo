@@ -1,44 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import { useHistory } from 'react-router-dom'
+const RegistrationHtml = ({ handleChange, handleSubmit, user }) => {
 
-
-const Registration = () => {
-    const history = useHistory();
-
-    const [user, setUser] = useState({ email: '', password: '', confirmedPassword: '', error: {} });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setUser({ ...user, [name]: value })
-    }
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-
-        const url = "http://localhost:5000/api/user"
-
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
-        };
-        fetch(url, requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                if (!data.success) {
-                    setUser({ ...user, error: data })
-                }
-                if(data.email){
-                    history.push("/login")
-                    console.log("radi")
-                }
-            });
-    }
-
-    
     return (
         <>
             <div className="login" >
@@ -100,5 +63,4 @@ const Registration = () => {
         </>
     )
 }
-
-export default Registration
+export default RegistrationHtml
