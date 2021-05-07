@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Development server and express server
 
 
-In the project directory, you can run:
+In the project directory, navigate to frontend and run:
 
 ### `npm start`
 
@@ -14,7 +14,7 @@ On Command Prompt navigate to backend and run
 
 
 
-### `nodemon index.js`
+### `nodemon app.js`
 
 for API. This server is listening on `http://localhost:5000/`. This will automatically reload if you change any of the source files.
 
