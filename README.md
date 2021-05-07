@@ -1,12 +1,23 @@
-# Getting Started with Create React App
+# Full Task Demo(React and Node.js)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
+
+
+## Development server and express server
+
+
 In the project directory, you can run:
 
 ### `npm start`
+
+On Command Prompt navigate to backend and run
+
+###`nodemon index.js`
+
+for API. This server is listening on `http://localhost:5000/`. This will automatically reload if you change any of the source files.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
