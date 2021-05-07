@@ -18,6 +18,8 @@ On Command Prompt navigate to backend and run
 
 for API. This server is listening on `http://localhost:5000/`. This will automatically reload if you change any of the source files.
 
+After the application is launched, you need to register a new user by clicking on CREATE NEW ACCOUNT with the appropriate credentials and access the application with the same login credentials.
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
