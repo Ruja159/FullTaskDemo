@@ -2,9 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-
 
 ## Development server and express server
 
@@ -15,7 +12,9 @@ In the project directory, you can run:
 
 On Command Prompt navigate to backend and run
 
-###`nodemon index.js`
+
+
+### `nodemon index.js`
 
 for API. This server is listening on `http://localhost:5000/`. This will automatically reload if you change any of the source files.
 
